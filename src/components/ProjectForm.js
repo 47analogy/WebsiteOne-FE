@@ -16,6 +16,13 @@ const ProjectForm = props => {
       }
       required
     />
+    <Form.Input
+      label='Image url'
+      placeholder='Project image url'
+      name='image_url'
+      value={props.image}
+      onChange={props.onChange}
+    />
     <Form.TextArea label='Description'
       placeholder='Project description'
       name='description'

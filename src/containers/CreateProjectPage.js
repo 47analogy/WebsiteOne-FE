@@ -6,6 +6,7 @@ import { createProject } from '../actions/createProjectAction'
 export class CreateProjectPage extends Component {
   state = {
     title: '',
+    imageUrl: '',
     description: '',
     status: 'Active'
   }
@@ -26,7 +27,7 @@ export class CreateProjectPage extends Component {
   }
 
   render () {
-    let { title, description, status } = this.state
+    let { title, imageUrl, description, status } = this.state
     return (
       <Container >
         <Header as='h1'
@@ -35,6 +36,7 @@ export class CreateProjectPage extends Component {
           handleSubmit={this.handleSubmit}
           onChange={this.handleChange}
           title={title}
+          imageUrl={imageUrl}
           description={description}
           status={status}
           cookies={this.props.cookies}
