@@ -19,8 +19,9 @@ const ProjectForm = props => {
     <Form.Input
       label='Image url'
       placeholder='Project image url'
+      type='url'
       name='image_url'
-      value={props.image}
+      value={props.imageURL}
       onChange={props.onChange}
     />
     <Form.TextArea label='Description'
