@@ -3,20 +3,12 @@ import { Header, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import ProjectForm from '../components/ProjectForm'
 import { createProject } from '../actions/createProjectAction'
+import '../assets/CreateProjectPage.css'
+
 export class CreateProjectPage extends Component {
-  state = {
-    title: '',
-    imageUrl: '',
-    description: '',
-    status: 'Active'
-  }
-
-  handleChange = (e, { name, value }) => { this.setState({ [name]: value }) }
-
-  handleSubmit = event => {
-    const { title, description, status } = this.state
+  handleSubmit = values => {
+    const { title, description, status } = values
     const { createProject, history, cookies } = this.props
-    event.preventDefault()
     createProject({
       title,
       description,
@@ -27,24 +19,19 @@ export class CreateProjectPage extends Component {
   }
 
   render () {
-    let { title, imageUrl, description, status } = this.state
     return (
       <Container >
         <Header as='h1'
           textAlign='center' > Creating a new Project </Header>
         <ProjectForm
-          handleSubmit={this.handleSubmit}
-          onChange={this.handleChange}
-          title={title}
-          imageUrl={imageUrl}
-          description={description}
-          status={status}
+          onSubmit={this.handleSubmit}
           cookies={this.props.cookies}
         />
       </Container >
     )
   }
 }
+
 const mapStateToProps = (store, ownProps) => ({
   cookies: ownProps.cookies
 })
